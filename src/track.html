@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Mapilary | live delivery tracking</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- build:css css/widget.pkg.css -->
+    <link rel="stylesheet" href="../bower_components/Leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="../bower_components/leaflet-locatecontrol/src/L.Control.Locate.css">
+    <link rel="stylesheet" href="css/widget.css">
+    <!-- add any other stylesheets in here... -->
+    <!-- endbuild -->
+</head>
+<body>
+    <div id="content">
+        <form class="form-wrapper cf">
+            <input type="text" placeholder="Enter tracking number here" value="DEMO" required>
+            <button type="submit">TRACK</button>
+        </form>
+        <div id="map"></div>
+    </div>
+
+    <!--(if target dev)>
+    <!-->
+    <script src="../bower_components/requirejs/require.js" data-main="js/main"></script>
+    <!--<!(endif)-->
+
+    <!--(if target dist)>
+    <script src="js/main.js"></script>
+    <!(endif)-->
+</body>
+</html>

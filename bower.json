@@ -1,0 +1,32 @@
+{
+  "name": "mapilary-widget",
+  "version": "0.1",
+  "authors": [
+    "Marian Hello <marian.hello@mapilary.com>"
+  ],
+  "description": "Mapilary Web",
+  "keywords": [
+    "last",
+    "mile",
+    "logistics",
+    "tracking"
+  ],
+  "license": "MAPILARY",
+  "homepage": "mapilary.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Leaflet": "mauron85/Leaflet#~0.7.2",
+    "leaflet-locatecontrol": "domoritz/leaflet-locatecontrol#~0.19.0",
+    "requirejs": "~2.1.10",
+    "jquery": "~2.0.3",
+    "almond": "~0.2.9",
+    "socket.io-client": "~0.9.16"
+  }
+}

@@ -83,7 +83,7 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
                         @_renderPath origin, destination
                 else
                     driver.setLatLng(latlng)
-                @_map.fitBounds(@_featureGroup);
+                @_map.fitBounds @_featureGroup, {padding: [50, 50]}
                 return
 
         trackDelivery: (trackingNr) ->

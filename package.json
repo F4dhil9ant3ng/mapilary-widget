@@ -16,6 +16,9 @@
     "grunt-usemin": "~2.0.2",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-imagemin": "~0.5.0",
-    "grunt-contrib-requirejs": "~0.4.1"
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-targethtml": "~0.2.6"
+  },
+  "dependencies": {
   }
 }

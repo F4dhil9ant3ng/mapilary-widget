@@ -129,7 +129,7 @@ module.exports = function(grunt) {
                     include: ['main'],
                     insertRequire: ['main'],
                     out: 'dist/js/main.js',
-                    optimize: 'none',
+                    optimize: 'uglify2',
                     wrap: {
                         startFile: 'src/start.frag',
                         endFile: 'src/end.frag'

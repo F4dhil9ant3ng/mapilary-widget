@@ -45,7 +45,6 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
                 allowedTravelModes: @_settings.allowedTravelModes
                 unitSystem: @_settings.unitSystem
                 apiKey: @_settings.findPathApikey
-                unitSystem: @_settings.unitSystem
                 origin: origin
                 destination: destination
             }

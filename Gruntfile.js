@@ -38,13 +38,31 @@ module.exports = function(grunt) {
             ]},
             dist: {
                 files: [
+                {//socketio & jquery
+                    expand: true,
+                    dot: true,
+                    flatten: true,
+                    cwd: 'bower_components/',
+                    dest: 'dist/js/',
+                    src: ['**/socket.io.min.js', '**/jquery.min.js'],
+                    filter: 'isFile'
+                },
                 {//locatecontrol
                     expand: true,
                     dot: true,
                     flatten: true,
-                    cwd: 'bower_components/leaflet-locatecontrol/',
+                    cwd: 'bower_components/',
                     dest: 'dist/css/images/',
                     src: ['**/images/*'],
+                    filter: 'isFile'
+                },
+                {//fonts
+                    expand: true,
+                    dot: true,
+                    flatten: true,
+                    cwd: 'bower_components/',
+                    dest: 'dist/fonts/',
+                    src: ['**/fonts/*'],
                     filter: 'isFile'
                 }
             ]}
@@ -107,13 +125,15 @@ module.exports = function(grunt) {
                 options: {
                     mainConfigFile: '.tmp/js/build.js',
                     baseUrl: '.tmp/js',
-                    // name: 'main',
                     name: '../../bower_components/almond/almond',
                     include: ['main'],
                     insertRequire: ['main'],
                     out: 'dist/js/main.js',
-                    optimize: 'uglify'
-                    // wrap: true
+                    optimize: 'none',
+                    wrap: {
+                        startFile: 'src/start.frag',
+                        endFile: 'src/end.frag'
+                    }
                 }
             }
         },

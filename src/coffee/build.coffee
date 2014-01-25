@@ -1,11 +1,10 @@
 require.config {
     waitSeconds: 30,
     paths: {
-        'jquery': '../../bower_components/jquery/jquery',
-        'jquery-private': '../vendor/jquery-private',
-        'leaflet': '../../bower_components/Leaflet/dist/leaflet',
+        'leaflet': '../../bower_components/Leaflet/dist/leaflet-src',
         'leaflet.locatecontrol': '../../bower_components/leaflet-locatecontrol/src/L.Control.Locate',
-        'socketio': '../../bower_components/socket.io-client/dist/socket.io',
+        'leaflet.awesome-markers': '../../bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers',
+        'leaflet.plotter': '../../bower_components/leaflet-plotter/src/leaflet.plotter',
         'widget': 'widget'
     },
     map: {
@@ -13,13 +12,12 @@ require.config {
       'jquery-private': { 'jquery': 'jquery' }
     },
     shim: {
-        'socketio': {
-            exports: 'io'
-        },
         'leaflet': {
             exports: 'L'
         },
-        'leaflet.locatecontrol':   ['leaflet']
+        'leaflet.awesome-markers': ['leaflet'],
+        'leaflet.locatecontrol': ['leaflet'],
+        'leaflet.plotter': ['leaflet'],
         'widget': {
             exports: 'MapilaryWidget'
         }

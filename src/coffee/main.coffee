@@ -70,7 +70,7 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
                 if !driver
                     truck = L.AwesomeMarkers.icon {
                         icon: 'truck'
-                        markerColor: 'red'
+                        markerColor: 'darkgreen'
                         prefix: 'fa'
                     }
                     driver = L.marker latlng, {
@@ -91,20 +91,18 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
                 apikey: @_settings.deliveryApikey
             }
             $.get @_settings.deliveryServiceUrl, params, (deliveries) =>
-                driver = null
                 delivery = deliveries[0]
                 if delivery && delivery.deliveryAddresses && delivery.deliveryAddresses.length > 0
                     coords = delivery.deliveryAddresses[0].coords
                     latlng = new L.LatLng(coords.latitude, coords.longitude)
                     @_map.panTo(latlng)
-                    circle = new L.CircleMarker(latlng, {
-                        radius: 8,
-                        fillColor: "green",
-                        color: "#000",
-                        weight: 2,
-                        opacity: 1,
-                        fillOpacity: 1,
-                    })
+                    mapilaryIcon = L.icon {
+                        iconUrl: 'images/mapilarymarker.png'
+                        iconSize:     [34, 45]
+                        # iconAnchor:   [22, 94]
+                        # popupAnchor:  [-3, -76]
+                    }
+                    marker = L.marker latlng, {icon: mapilaryIcon}
                     destination = coords.latitude + ',' + coords.longitude
-                    @_featureGroup.addLayer(circle);
+                    @_featureGroup.addLayer(marker);
                     @_socketConnect(trackingNr, destination)

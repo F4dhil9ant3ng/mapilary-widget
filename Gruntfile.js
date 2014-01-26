@@ -38,6 +38,15 @@ module.exports = function(grunt) {
             ]},
             dist: {
                 files: [
+                {//fonts & images
+                    expand: true,
+                    dot: true,
+                    flatten: false,
+                    cwd: 'src',
+                    dest: 'dist/',
+                    src: ['images/*'],
+                    filter: 'isFile'
+                },
                 {//socketio & jquery
                     expand: true,
                     dot: true,

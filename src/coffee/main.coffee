@@ -92,8 +92,8 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
             }
             $.get @_settings.deliveryServiceUrl, params, (deliveries) =>
                 delivery = deliveries[0]
-                if delivery && delivery.deliveryAddresses && delivery.deliveryAddresses.length > 0
-                    coords = delivery.deliveryAddresses[0].coords
+                if delivery && delivery.addresses && delivery.addresses.length > 0
+                    coords = delivery.addresses[0].coords
                     latlng = new L.LatLng(coords.latitude, coords.longitude)
                     @_map.panTo(latlng)
                     mapilaryIcon = L.icon {

@@ -8,16 +8,14 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
 
         # Default settings
         _settings: {
-            deliveryApikey: ''
             findPathApikey: ''
-            region: 'sk/bratislava'
             allowedTravelModes: 'CAR'
             unitSystem: 'METRIC'
             wsUrl: 'https://ws.mapilary.com'
-            deliveryServiceUrl: 'https://api.mapilary.com/v1/deliveries?'
+            deliveryServiceUrl: 'https://api.mapilary.com/v1/deliveries/{trackingNr}/findByTrackingNr'
             findPathUrl: 'http://ec2-54-194-157-122.eu-west-1.compute.amazonaws.com/pathfinding/'
-            tilesUrl: 'https://ssl_tiles.cloudmade.com/dfc00e1faff14a268dbebec543abfc29/997/256/{z}/{x}/{y}.png'
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+            tilesUrl: 'http://{s}.tiles.mapbox.com/v3/mapilary.hmal3hg1/{z}/{x}/{y}.png'
+            attribution: '&copy; <a href=\"http://www.mapbox.com\">Mapbox</a>'
             view: [51.505, -0.09],
             zoom: 13
             maxZoom: 18,
@@ -40,7 +38,7 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
             @_featureGroup.addTo(@_map)
 
         _renderPath: (origin, destination) ->
-            url = @_settings.findPathUrl + @_settings.region
+            url = @_settings.findPathUrl
             params = {
                 allowedTravelModes: @_settings.allowedTravelModes
                 unitSystem: @_settings.unitSystem
@@ -50,9 +48,9 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
             }
             $.get url, params, (matrix) =>
                 steps = []
-                if (matrix.paths && matrix.paths.length > 0 && matrix.paths[0].steps)
-                    $.each matrix.paths[0].steps, (idx, step) ->
-                        steps.push(step.startLocation.split(','))
+                if (matrix.status == 'OK')
+                    $.each matrix.paths[0].legs[0].steps, (idx, step) ->
+                        steps.push(step.location)
                     plottedPolyline = L.Polyline.Plotter(steps, {
                         weight: 5
                     })
@@ -61,11 +59,10 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
 
         _socketConnect: (trackingNr, destination) ->
             driver = null
-            socket = io.connect(@_settings.wsUrl, {resource: 'socket.io', query: 'apikey=' + @_settings.deliveryApikey})
+            socket = io.connect(@_settings.wsUrl, {resource: 'socket.io'})
             socket.on 'connect', ->
                 socket.emit 'subscribe', 'trackingNr:' + trackingNr
-            socket.on 'position:update', (data) =>
-                coords = data.position.coords
+            socket.on 'position:update', (coords) =>
                 latlng = new L.LatLng(coords.latitude, coords.longitude)
                 if !driver
                     truck = L.AwesomeMarkers.icon {
@@ -86,11 +83,8 @@ define ['leaflet', 'leaflet.locatecontrol', 'leaflet.awesome-markers', 'leaflet.
                 return
 
         trackDelivery: (trackingNr) ->
-            params = {
-                trackingNr: trackingNr,
-                apikey: @_settings.deliveryApikey
-            }
-            $.get @_settings.deliveryServiceUrl, params, (deliveries) =>
+            url = @_settings.deliveryServiceUrl.replace('{trackingNr}', trackingNr)
+            $.get url, (deliveries) =>
                 delivery = deliveries[0]
                 if delivery && delivery.addresses && delivery.addresses.length > 0
                     coords = delivery.addresses[0].coords

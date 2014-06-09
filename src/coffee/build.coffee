@@ -5,7 +5,8 @@ require.config {
         'leaflet.locatecontrol': '../../bower_components/leaflet-locatecontrol/src/L.Control.Locate',
         'leaflet.awesome-markers': '../../bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers',
         'leaflet.plotter': '../../bower_components/leaflet-plotter/src/leaflet.plotter',
-        'widget': 'widget'
+        'widget': 'widget',
+        'moment': '../../bower_components/momentjs/moment'
     },
     map: {
       '*': { 'jquery': 'jquery-private' },

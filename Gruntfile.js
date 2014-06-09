@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                     dot: true,
                     cwd: 'src',
                     dest: '.tmp/',
-                    src: ['vendor/*', '*.html'],
+                    src: ['vendor/*', '*.html', 'js/*'],
                     filter: 'isFile'
                 }
             ]},
@@ -126,7 +126,8 @@ module.exports = function(grunt) {
                     console: true,
                     module: true,
                     document: true
-                }
+                },
+                ignores: 'src/js/*'
             }
         },
         requirejs: {
@@ -139,6 +140,7 @@ module.exports = function(grunt) {
                     insertRequire: ['main'],
                     out: 'dist/js/main.js',
                     optimize: 'uglify2',
+                    preserveLicenseComments: false,
                     wrap: {
                         startFile: 'src/start.frag',
                         endFile: 'src/end.frag'

@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset=utf-8>
-    <title>Mapilary | live delivery tracking</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- build:css css/widget.pkg.css -->
-    <link rel="stylesheet" href="vendor/fonts.css">
-    <link rel="stylesheet" href="../bower_components/Leaflet/dist/leaflet.css">
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
-    <link rel="stylesheet" href="../bower_components/leaflet-locatecontrol/src/L.Control.Locate.css">
-    <link rel="stylesheet" href="css/widget.css">
-    <!-- add any other stylesheets in here... -->
-    <!-- endbuild -->
+	<meta charset=utf-8>
+	<title>Mapilary | live delivery tracking</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- build:css css/widget.pkg.css -->
+	<link rel="stylesheet" href="vendor/fonts.css">
+	<link rel="stylesheet" href="../bower_components/Leaflet/dist/leaflet.css">
+	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="../bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
+	<link rel="stylesheet" href="../bower_components/leaflet-locatecontrol/src/L.Control.Locate.css">
+	<link rel="stylesheet" href="css/widget.css">
+	<!-- add any other stylesheets in here... -->
+	<!-- endbuild -->
 </head>
 <body>
-    <div id="content">
-        <form id="tracking-form" class="form-inline" role="form">
-            <div class="form-group">
-                <input type="text" id="trackingNr" name="trackingNr" class="form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr."></div>
-            <button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
-            <p>For demo enter: demo as tracking nr.</p>
-        </form>
-        <div id="map"></div>
-    </div>
+<div id="content">
+	<form id="tracking-form" class="form-inline" role="form">
+		<div class="form-group">
+			<input type="text" id="trackingNr" name="trackingNr" class="form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr."></div>
+		<button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
+		<p>For demo enter: demo as tracking nr.</p>
+	</form>
+	<div id="map-container">
+		<div id="info-overlay">
+			<div class="eta">
+				<b>ETA</b> <span class="dynamic"></span>
+			</div>
+			<div class="info"></div>
+			<div class="client-position">
+				<div><span>#<b class="dynamic"></b></span></div>
+				<div>Waiting list position</div>
+			</div>
+		</div>
+		<div id="map"></div>
+	</div>
+</div>
 
-    <!--(if target dev)>
-    <!-->
-    <script src="../bower_components/requirejs/require.js" data-main="js/main"></script>
-    <script src="../bower_components/socket.io-client/dist/socket.io.js"></script>
-    <script src="../bower_components/jquery/jquery.js"></script>
-    <!--<!(endif)-->
+<!--(if target dev)>
+<!-->
+<script src="../bower_components/requirejs/require.js" data-main="js/main"></script>
+<script src="../bower_components/socket.io-client/dist/socket.io.js"></script>
+<script src="../bower_components/jquery/jquery.js"></script>
+<!--<!(endif)-->
 
-    <!--(if target dist)>
-    <script src="js/socket.io.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-    <!(endif)-->
+<!--(if target dist)>
+<script src="js/socket.io.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<!(endif)-->
 
-    <script>
-        var widget = new MapilaryWidget('map', {
-            showPath: false,
-            findPathApikey: 'MapilaryDR9KQIn09i4mEk2zPxt9'
-        });
-        $('button:submit').on('click', function (ev) {
-            ev.preventDefault();
-            var trackingNr = $(ev.target.form[0]).val().toUpperCase();
-            widget.trackDelivery(trackingNr);
-        });
-    </script>
+<script>
+	var widget = new MapilaryWidget('map', {
+		showPath: true,
+		findPathApikey: 'MapilaryDR9KQIn09i4mEk2zPxt9'
+	});
+	$('button:submit').on('click', function (ev) {
+		ev.preventDefault();
+		var trackingNr = $(ev.target.form[0]).val().toUpperCase();
+		widget.trackDelivery(trackingNr);
+	});
+</script>
 </body>
 </html>

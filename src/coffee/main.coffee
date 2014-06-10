@@ -1,18 +1,17 @@
 define [
-	'moment',
 	'leaflet',
-	'PathFinder',
-	# --
 	'leaflet.locatecontrol',
-	'leaflet.awesome-markers',
-	'leaflet.plotter'
-], (moment, L, PathFinder) ->
+	'leaflet.awesome-markers'
+	# 'jquery',
+	# 'moment',
+], (L) ->
 
-	class window.MapilaryWidget
+	class MapilaryWidget
 
 		_titles: 0
 		_map: null
 		_featureGroup: null
+		_trackings: {}
 
 		# Default settings
 		_settings: {
@@ -31,8 +30,6 @@ define [
 		}
 
 		constructor: (@el, @options) ->
-			map = null
-			featureGroup = null
 			# Merge default settings with options.
 			settings = $.extend @_settings, options
 			@_map = L.map(el).setView(settings.view, settings.zoom)
@@ -59,8 +56,8 @@ define [
 				if (matrix.status == 'OK')
 					$.each matrix.paths[0].legs[0].steps, (idx, step) ->
 						steps.push(step.location)
-					plottedPolyline = L.Polyline.Plotter(steps, {
-						weight: 5
+					plottedPolyline = L.polyline(steps, {
+						color: 'red'
 					})
 					@_map.addLayer plottedPolyline
 				return
@@ -86,18 +83,17 @@ define [
 						@_renderPath origin, destination
 				else
 					driver.setLatLng(latlng)
-				@_map.fitBounds @_featureGroup, {padding: [50, 50]}
+				@_map.fitBounds @_featureGroup, {padding: [15, 15]}
 				return
 
 		trackDelivery: (trackingNr) ->
-			if(!trackingNr)
+			if !trackingNr
 				alert('Please enter a tracking number to proceed');
 				return
 			url = @_settings.deliveryServiceUrl.replace('{trackingNr}', trackingNr)
 			$.get url, (deliveries) =>
-				console.log(deliveries);
-				if(!deliveries.length)
-					alert('No delivery found with the tacking number: '+ trackingNr)
+				if !deliveries.length
+					alert('No delivery found with the tracking number: '+ trackingNr)
 					return
 				delivery = deliveries[0]
 				if delivery && delivery.addresses && delivery.addresses.length > 0
@@ -123,12 +119,12 @@ define [
 
 					# info-overlay stuff
 					$infoOverlay = $('#info-overlay');
-
 					$infoOverlay.addClass('show');
-
-					if(delivery.etd)
+					@_trackings[trackingNr] = {
+						etd: delivery.etd
+					}
+					if delivery.etd
 						eta = moment(delivery.etd.date).format('HH:mm');
-
 						$infoOverlay.find('.eta .dynamic').html(eta);
 						$infoOverlay.find('.client-position .dynamic').html(delivery.etd.orderNr);
 

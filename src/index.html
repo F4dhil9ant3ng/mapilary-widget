@@ -19,7 +19,7 @@
 <div id="content">
 	<form id="tracking-form" class="form-inline" role="form">
 		<div class="form-group">
-			<input type="text" id="trackingNr" name="trackingNr" class="form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr."></div>
+			<input type="text" id="trackingNr" name="trackingNr" class="form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr." autofocus></div>
 		<button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
 		<p>For demo enter: demo as tracking nr.</p>
 	</form>
@@ -40,14 +40,16 @@
 
 <!--(if target dev)>
 <!-->
-<script src="../bower_components/requirejs/require.js" data-main="js/main"></script>
 <script src="../bower_components/socket.io-client/dist/socket.io.js"></script>
 <script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/momentjs/moment.js"></script>
+<script src="../bower_components/requirejs/require.js" data-main="js/main"></script>
 <!--<!(endif)-->
 
 <!--(if target dist)>
 <script src="js/socket.io.min.js"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/moment.min.js"></script>
 <script src="js/main.js"></script>
 <!(endif)-->
 

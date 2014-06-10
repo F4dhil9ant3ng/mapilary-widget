@@ -1,6 +1,6 @@
 {
   "name": "mapilary-widget",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.8.0",
@@ -16,9 +16,10 @@
     "grunt-usemin": "~2.0.2",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-imagemin": "~0.5.0",
-    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-requirejs": "~0.4.1",
     "grunt-targethtml": "~0.2.6"
   },
   "dependencies": {
+    "amdclean": "^2.1.1"
   }
 }

@@ -4,13 +4,14 @@ require.config {
         'leaflet': '../../bower_components/Leaflet/dist/leaflet-src',
         'leaflet.locatecontrol': '../../bower_components/leaflet-locatecontrol/src/L.Control.Locate',
         'leaflet.awesome-markers': '../../bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers',
-        'leaflet.plotter': '../../bower_components/leaflet-plotter/src/leaflet.plotter',
-        'widget': 'widget',
+        'widget': 'main',
+        # 'jquery': '../../bower_components/jquery/jquery',
+        # 'jquery-private': '../vendor/jquery-private',
         'moment': '../../bower_components/momentjs/moment'
     },
     map: {
-      '*': { 'jquery': 'jquery-private' },
-      'jquery-private': { 'jquery': 'jquery' }
+      # '*': { 'jquery': 'jquery-private' }
+      # 'jquery-private': { 'jquery': 'jquery' }
     },
     shim: {
         'leaflet': {
@@ -18,7 +19,6 @@ require.config {
         },
         'leaflet.awesome-markers': ['leaflet'],
         'leaflet.locatecontrol': ['leaflet'],
-        'leaflet.plotter': ['leaflet'],
         'widget': {
             exports: 'MapilaryWidget'
         }

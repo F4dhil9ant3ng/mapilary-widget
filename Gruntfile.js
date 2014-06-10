@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     'grunt-contrib-concat',
     'grunt-contrib-less',
     'grunt-contrib-coffee',
-    'grunt-contrib-requirejs',
+    'grunt-requirejs',
     'grunt-usemin',
     'grunt-targethtml'
     ].forEach(function(task) { grunt.loadNpmTasks(task); });
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                     flatten: true,
                     cwd: 'bower_components/',
                     dest: 'dist/js/',
-                    src: ['**/socket.io.min.js', '**/jquery.min.js'],
+                    src: ['**/socket.io.min.js', '**/jquery.min.js', '**/moment.min.js'],
                     filter: 'isFile'
                 },
                 {//locatecontrol
@@ -105,13 +105,13 @@ module.exports = function(grunt) {
             }
         },
         useminPrepare: {
-            html: ['.tmp/track.html'],
+            html: ['.tmp/index.html'],
             options: {
                 dest: 'dist/'
             }
         },
         usemin: {
-            html: ['.tmp/track.html']
+            html: ['.tmp/index.html']
         },
         // TODO - support qunit
         qunit: {
@@ -133,17 +133,33 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
+                    // almond: true,
                     mainConfigFile: '.tmp/js/build.js',
                     baseUrl: '.tmp/js',
-                    name: '../../bower_components/almond/almond',
                     include: ['main'],
+                    exclude: ['moment'],
                     insertRequire: ['main'],
                     out: 'dist/js/main.js',
-                    optimize: 'uglify2',
+                    optimize: 'none',
                     preserveLicenseComments: false,
-                    wrap: {
-                        startFile: 'src/start.frag',
-                        endFile: 'src/end.frag'
+                    findNestedDependencies: true,
+                    generateSourceMaps: true,
+                    // wrap: {
+                    //     startFile: 'src/start.frag',
+                    //     endFile: 'src/end.frag'
+                    // },
+                    onModuleBundleComplete: function (data) {
+                        var fs = require('fs'),
+                        amdclean = require('amdclean'),
+                        outputFile = data.path;
+                        fs.writeFileSync(outputFile, amdclean.clean({
+                            filePath: outputFile,
+                            transformAMDChecks: true,
+                            wrap: {
+                                start: fs.readFileSync('src/start.frag', 'utf8'),
+                                end: fs.readFileSync('src/end.frag', 'utf8')
+                            }
+                        }));
                     }
                 }
             }
@@ -151,7 +167,7 @@ module.exports = function(grunt) {
         targethtml: {
             dist: {
                 files: {
-                    'dist/track.html': '.tmp/track.html'
+                    'dist/index.html': '.tmp/index.html'
                 }
             }
         },

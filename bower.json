@@ -1,6 +1,6 @@
 {
   "name": "mapilary-widget",
-  "version": "0.1",
+  "version": "0.2",
   "authors": [
     "Marian Hello <marian.hello@mapilary.com>"
   ],
@@ -25,11 +25,10 @@
     "Leaflet": "mauron85/Leaflet#~0.7.2",
     "leaflet-locatecontrol": "domoritz/leaflet-locatecontrol#~0.19.0",
     "Leaflet.awesome-markers": "lvoogdt/Leaflet.awesome-markers#~2.0.1",
-    "leaflet-plotter": "scripter-co/leaflet-plotter",
     "requirejs": "~2.1.10",
     "jquery": "~2.0.3",
-    "almond": "~0.2.9",
     "socket.io-client": "~0.9.16",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "momentjs": "~2.6.0"
   }
 }

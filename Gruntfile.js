@@ -133,21 +133,16 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
-                    // almond: true,
                     mainConfigFile: '.tmp/js/build.js',
                     baseUrl: '.tmp/js',
                     include: ['main'],
                     exclude: ['moment'],
                     insertRequire: ['main'],
                     out: 'dist/js/main.js',
-                    optimize: 'none',
+                    optimize: 'uglify2',
                     preserveLicenseComments: false,
                     findNestedDependencies: true,
                     generateSourceMaps: true,
-                    // wrap: {
-                    //     startFile: 'src/start.frag',
-                    //     endFile: 'src/end.frag'
-                    // },
                     onModuleBundleComplete: function (data) {
                         var fs = require('fs'),
                         amdclean = require('amdclean'),

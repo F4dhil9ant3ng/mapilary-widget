@@ -18,9 +18,11 @@
 <body>
 <div id="content">
 	<form id="tracking-form" class="form-inline" role="form">
-		<div class="form-group">
+		<div>
+			<div class="form-group">
 			<input type="text" id="trackingNr" name="trackingNr" class="form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr." autofocus></div>
-		<button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
+			<button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
+		</div>
 		<p>For demo enter: demo as tracking nr.</p>
 	</form>
 	<div id="map-container">
@@ -31,7 +33,7 @@
 			<div class="info"></div>
 			<div class="client-position">
 				<div><span>#<b class="dynamic"></b></span></div>
-				<div>Waiting list position</div>
+				<div class="text">Waiting list position</div>
 			</div>
 		</div>
 		<div id="map"></div>

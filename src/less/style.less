@@ -21,6 +21,43 @@ body {
     color: @text-color;
 }
 
+form#tracking-form {
+	margin-bottom: 20px;
+	div {
+		.clearfix();
+		div.form-group {
+			float: left;
+			width: 70%;
+			input.form-control {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 10px 20px;
+				&:focus {
+					outline: none;
+				}
+				@media (max-width: 600px){
+					font-size: 20px;
+				}
+			}
+		}
+		button {
+			float: left;
+			width: 30%;
+			box-sizing: border-box;
+			padding: 10px 20px;
+			&:focus {
+				outline: none;
+			}
+			@media (max-width: 600px){
+				font-size: 20px;
+			}
+		}
+	}
+	p {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+}
 
 #content {
     margin: 0 auto @line-height*3;
@@ -59,9 +96,15 @@ body {
     }
     .eta {
         font-size: 28px;
+		@media (max-width: 600px){
+			float: left;
+		}
     }
     .info {
         font-size: 14px;
+		@media (max-width: 600px){
+			display: none;
+		}
     }
     .client-position {
         position: absolute;
@@ -74,6 +117,11 @@ body {
             height: 20px;
             display: block;
         }
+		div.text {
+			@media (max-width: 600px){
+				display: none;
+			}
+		}
     }
 }
 

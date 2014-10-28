@@ -1,0 +1,29 @@
+html,
+body,
+div,
+p,
+ul,
+ol,
+li,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #545454;
+}
+#content {
+  margin: 35px auto;
+  padding: 20px;
+  max-width: 600px;
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

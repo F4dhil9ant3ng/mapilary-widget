@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Mapilary | live delivery tracking</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="vendor/fonts.css" rel="stylesheet">
+	<link href="vendor/map.css" rel="stylesheet">
+	<link href="vendor/leaflet.css" rel="stylesheet">
+	<link href="vendor/L.Control.Locate.css" rel="stylesheet">
+	<link href="css/content.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<style>
+		#widget { height: 469px; }	
+	</style>
+</head>
+<body>
+<div id="content">
+	<p>For demo enter: demo as tracking nr.</p>
+	<div id="widget"></div>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/L.Control.Locate.js"></script>
+<script src="vendor/socket.io.min.js"></script>
+<script src="vendor/jquery.min.js"></script>
+<script src="js/widget.min.js"></script>
+
+<script>
+	var widget = new MapilaryWidget({
+		el: '#widget'		
+	}).render();
+</script>
+</body>
+</html>

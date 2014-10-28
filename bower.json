@@ -1,34 +1,22 @@
 {
   "name": "mapilary-widget",
-  "version": "0.2",
-  "authors": [
-    "Marian Hello <marian.hello@mapilary.com>"
-  ],
-  "description": "Mapilary Web",
+  "version": "0.2.2",
+  "description": "Mapilary Widget",
+  "author": "Marian Hello <marian.hello@mapilary.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapilary/mapilary-widget"
+  },  
   "keywords": [
-    "last",
-    "mile",
+    "last mile",
+    "widget",
     "logistics",
     "tracking"
   ],
   "license": "MAPILARY",
-  "homepage": "mapilary.com",
+  "homepage": "http://mapilary.com/widget",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "Leaflet": "mauron85/Leaflet#~0.7.2",
-    "leaflet-locatecontrol": "domoritz/leaflet-locatecontrol#~0.19.0",
-    "Leaflet.awesome-markers": "lvoogdt/Leaflet.awesome-markers#~2.0.1",
-    "requirejs": "~2.1.10",
-    "jquery": "~2.0.3",
-    "socket.io-client": "~0.9.16",
-    "font-awesome": "~4.0.3",
-    "momentjs": "~2.6.0"
+    "leaflet-locatecontrol": "domoritz/leaflet-locatecontrol#~0.32.0"
   }
 }

@@ -1,0 +1,49 @@
+.info-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  text-transform: capitalize;
+  text-align: center;
+  background: white;
+  opacity: 0.8;
+  padding: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: none;
+}
+.info-overlay .eta {
+  font-size: 28px;
+}
+@media (max-width: 600px) {
+  .info-overlay .eta {
+    float: left;
+  }
+}
+.info-overlay .info {
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .info-overlay .info {
+    display: none;
+  }
+}
+.info-overlay .client-position {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 14px;
+  text-align: right;
+}
+.info-overlay .client-position span {
+  font-size: 28px;
+  height: 20px;
+  display: block;
+}
+@media (max-width: 600px) {
+  .info-overlay .client-position div.text {
+    display: none;
+  }
+}

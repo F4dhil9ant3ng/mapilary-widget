@@ -6,13 +6,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="vendor/fonts.css" rel="stylesheet">
-	<!-- build:css css/widget.bundle.min.css -->
-	<link href="vendor/map.css" rel="stylesheet">
-	<link href="vendor/leaflet.css" rel="stylesheet">
-	<link href="vendor/L.Control.Locate.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<!-- add any other stylesheets in here... -->
-	<!-- endbuild -->
+	<link href="css/widget.bundle.min.css" rel="stylesheet">
 	<style>
 		html, body {
 			margin: 0;
@@ -20,24 +14,17 @@
 			height: 100%;
 		}
 		body {
-			padding: 20px;
 			background: #545454;
 		}
 		#widget { 
 			height: 100%;
-			padding: 20px;
-			max-width: 600px;
-			max-height: 500px;
-			margin: 0 auto;
 		}	
 	</style>
 </head>
 <body>
 	<div id="widget"></div>
 
-<!-- build:js js/widget.bundle.min.js -->
-<script src="js/widget.bundle.js"></script>
-<!-- endbuild -->
+<script src="js/widget.bundle.min.js"></script>
 <script>
 	var widget;
 	widget = new MapilaryWidget({

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Mapilary | live delivery tracking</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="vendor/fonts.css" rel="stylesheet">
+	<link href="vendor/map.css" rel="stylesheet">
+	<link href="css/content.css" rel="stylesheet">
+	<link href="css/track.css" rel="stylesheet">
+	<link href="css/widget.bundle.min.css" rel="stylesheet">
+	<style>
+		.widget { 
+			height: 469px;
+			margin-bottom: 20px;
+			padding: 0;
+		}	
+		form.tracking-form .btn { background-color: green; }
+	</style>
+</head>
+<body>
+<div id="content">
+	<p>For demo enter: demo as tracking nr.</p>
+	<form class="tracking-form" class="form-inline" role="form">
+		<div>
+			<div class="form-group">
+			<input type="text" name="trackingNr" class="trackingNr form-control" title="for demonstration enter DEMO as Tracking Nr." placeholder="Tracking Nr." autofocus></div>
+			<button class="btn btn-default btn-track" data-toggle="collapse" data-target=".bs-widget-frame" type="submit">TRACK</button>
+		</div>			
+	</form>
+</div>
+
+<script src="vendor/jquery.min.js"></script>
+<script src="js/widget.bundle.min.js"></script>
+<script>
+	$('button:submit').on('click', function (ev) {
+		ev.preventDefault();
+		var trackingNr = $(ev.target.form[0]).val().toUpperCase();
+		var $el = $('<div class="widget"></div>').appendTo('#content');
+		var widget = new MapilaryWidget({
+			el: $el,
+			trackForm: false,
+		}).render();
+		widget.trackDelivery(trackingNr);
+	});
+</script>
+</body>
+</html>

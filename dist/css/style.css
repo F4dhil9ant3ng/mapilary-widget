@@ -1,0 +1,176 @@
+.leaflet-top {
+  top: 80px;
+}
+.mapilary-widget .info-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  text-transform: capitalize;
+  text-align: center;
+  background: white;
+  opacity: 0.8;
+  padding: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: none;
+}
+.mapilary-widget .info-overlay .eta {
+  font-size: 28px;
+}
+@media (max-width: 600px) {
+  .mapilary-widget .info-overlay .eta {
+    float: left;
+  }
+}
+.mapilary-widget .info-overlay .info {
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .mapilary-widget .info-overlay .info {
+    display: none;
+  }
+}
+.mapilary-widget .info-overlay .client-position {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 14px;
+  text-align: right;
+}
+.mapilary-widget .info-overlay .client-position span {
+  font-size: 28px;
+  height: 20px;
+  display: block;
+}
+@media (max-width: 600px) {
+  .mapilary-widget .info-overlay .client-position div.text {
+    display: none;
+  }
+}
+.mapilary-widget .tracking-form {
+  margin-bottom: 35px;
+}
+.mapilary-widget .tracking-form .btn,
+.mapilary-widget .tracking-form .form-control {
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 2.5em;
+}
+@media (min-width: 1000px) {
+  .mapilary-widget .tracking-form .btn,
+  .mapilary-widget .tracking-form .form-control {
+    font-family: 'Open Sans Condensed';
+  }
+}
+@media (max-width: 600px) {
+  .mapilary-widget .tracking-form .btn,
+  .mapilary-widget .tracking-form .form-control {
+    font-size: 1.5em;
+  }
+}
+.mapilary-widget .tracking-form div {
+  zoom: 1;
+}
+.mapilary-widget .tracking-form div:before {
+  content: '';
+  display: block;
+}
+.mapilary-widget .tracking-form div:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.mapilary-widget .tracking-form div div.form-group {
+  float: left;
+  width: 70%;
+}
+.mapilary-widget .tracking-form div div.form-group input.form-control {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+.mapilary-widget .tracking-form div div.form-group input.form-control:focus {
+  outline: none;
+}
+.mapilary-widget .tracking-form p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.mapilary-widget .tracking-form .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+.mapilary-widget .tracking-form .form-control {
+  display: block;
+  background-color: #F0EEEA;
+  border: none;
+  margin: 0;
+  padding: 12px 30px;
+  -webkit-appearance: none;
+  width: 330px;
+}
+.mapilary-widget .tracking-form .form-control:-moz-placeholder {
+  color: #fc8178;
+}
+.mapilary-widget .tracking-form .form-control:-ms-input-placeholder {
+  color: #fc8178;
+}
+.mapilary-widget .tracking-form .form-control::-webkit-input-placeholder {
+  color: #fc8178;
+}
+.mapilary-widget .tracking-form .btn {
+  float: left;
+  width: 30%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #FF5045;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  text-transform: uppercase;
+  float: right;
+  -webkit-font-smoothing: auto;
+}
+.mapilary-widget .tracking-form .btn:focus {
+  outline: none;
+}
+.mapilary-widget .tracking-form .btn:active {
+  background-color: #ff2012;
+}
+.mapilary-widget {
+  position: relative;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #333333;
+}
+.mapilary-widget .map-container {
+  position: relative;
+  width: 100%;
+}
+.mapilary-widget .map-container .map {
+  height: 100%;
+}
+.mapilary-widget .map-container p,
+.mapilary-widget .map-container pre {
+  margin-bottom: 20px;
+}
+.mapilary-widget .map-container pre {
+  padding-left: 20px;
+}

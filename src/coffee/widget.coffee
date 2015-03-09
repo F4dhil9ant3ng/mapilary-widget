@@ -75,10 +75,11 @@ class MapilaryWidget
 	
 	_socketConnect: (trackingNr) ->
 		driver = null
-		socket = io.connect @_settings.wsUrl, {resource: 'socket.io'}
+		socket = io.connect @_settings.wsUrl, {path: '/socket.io'}
 		socket.on 'connect', ->
 			socket.emit 'subscribe', 'trackingNr:' + trackingNr
-		socket.on 'position:update', (coords) =>
+		socket.on 'position:update', (pos) =>
+			coords = pos.coords
 			latlng = new L.LatLng coords.latitude, coords.longitude
 			if !driver
 				driver = L.marker latlng, {

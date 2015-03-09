@@ -86,14 +86,15 @@
       var driver, socket;
       driver = null;
       socket = io.connect(this._settings.wsUrl, {
-        resource: 'socket.io'
+        path: '/socket.io'
       });
       socket.on('connect', function() {
         return socket.emit('subscribe', 'trackingNr:' + trackingNr);
       });
       return socket.on('position:update', (function(_this) {
-        return function(coords) {
-          var latlng;
+        return function(pos) {
+          var coords, latlng;
+          coords = pos.coords;
           latlng = new L.LatLng(coords.latitude, coords.longitude);
           if (!driver) {
             driver = L.marker(latlng, {

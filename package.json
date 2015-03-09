@@ -33,7 +33,7 @@
   "dependencies": {
     "jquery": "~2.1.0",
     "leaflet": "^0.7.3",
-    "socket.io-client": "~0.9.17"
+    "socket.io-client": "~1.3.5"
   },
   "browserify-shim": "src/build/shims.js"
 }

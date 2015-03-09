@@ -1,3 +1,5 @@
+'use strict';
+
 $  = require('jquery')
 L  = require('leaflet')
 io = require('socket.io-client')

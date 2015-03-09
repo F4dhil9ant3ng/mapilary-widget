@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         'grunt-contrib-cssmin',
         'grunt-contrib-concat',
         'grunt-contrib-less',
-        'grunt-contrib-coffee',
+        'grunt-babel',
         'grunt-browserify',
         'grunt-usemin'
     ].forEach(function(task) {
@@ -82,11 +82,14 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        coffee: {
+        babel: {
+            options: {
+                sourceMap: true
+            },
             dist: {
                 expand: true,
-                cwd: 'src/coffee',
-                src: ['*.coffee'],
+                cwd: 'src/script',
+                src: ['*.es6.js'],
                 dest: '.tmp/js',
                 ext: '.js'
             }
@@ -135,7 +138,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'less',
-        'coffee',
+        'babel',
         'copy:prepareUsemin',
         'browserify',
         'useminPrepare',

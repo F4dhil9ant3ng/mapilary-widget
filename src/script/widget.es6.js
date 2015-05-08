@@ -1,3 +1,8 @@
+// var $  = require('jquery')
+// var L  = require('leaflet')
+// var io = require('socket.io-client')
+// require('../vendor/L.Control.Locate.browserify')
+
 class MapilaryWidget {
 
 	constructor(_settings) {
@@ -53,7 +58,7 @@ class MapilaryWidget {
 		this._map.invalidateSize()
 	}
 
-	_renderTrackForm() {	
+	_renderTrackForm() {
 		var $el = $(this.constructor._trackFormTpl)
 		$el.find('button:submit').on('click', (ev) => {
 			ev.preventDefault()
@@ -62,10 +67,10 @@ class MapilaryWidget {
 		})
 		return $el
 	}
-	
+
 	_socketConnect(trackingNr) {
 		var driver = null
-		var socket = io.connect(this._settings.wsUrl, { path: '/socket.io' })
+		var socket = io.connect(this._settings.wsUrl, { path: this._settings.wsPath })
 		socket.on('connect', () => {
 			socket.emit('subscribe', 'trackingNr:' + trackingNr)
 		})
@@ -149,6 +154,7 @@ MapilaryWidget._defaults = {
 	allowedTravelModes: 'CAR',
 	unitSystem: 'METRIC',
 	wsUrl: 'https://ws.mapilary.com:443',
+	wsPath: '/socket.io',
 	deliveryServiceUrl: 'https://api.mapilary.com/v1/deliveries/find?trackingNr={trackingNr}',
 	findPathUrl: 'http://ec2-54-194-157-122.eu-west-1.compute.amazonaws.com/pathfinding/',
 	tilesUrl: 'http://{s}.tiles.mapbox.com/v3/mapilary.hmal3hg1/{z}/{x}/{y}.png',

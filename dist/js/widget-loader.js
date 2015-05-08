@@ -4,6 +4,8 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+// var $ = require('jquery')
+
 var MapilaryWidgetLoader = (function () {
     function MapilaryWidgetLoader(settings) {
         _classCallCheck(this, MapilaryWidgetLoader);

@@ -4,6 +4,11 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+// var $  = require('jquery')
+// var L  = require('leaflet')
+// var io = require('socket.io-client')
+// require('../vendor/L.Control.Locate.browserify')
+
 var MapilaryWidget = (function () {
 	function MapilaryWidget(_settings) {
 		_classCallCheck(this, MapilaryWidget);
@@ -81,7 +86,7 @@ var MapilaryWidget = (function () {
 				var _this = this;
 
 				var driver = null;
-				var socket = io.connect(this._settings.wsUrl, { path: "/socket.io" });
+				var socket = io.connect(this._settings.wsUrl, { path: this._settings.wsPath });
 				socket.on("connect", function () {
 					socket.emit("subscribe", "trackingNr:" + trackingNr);
 				});
@@ -170,6 +175,7 @@ MapilaryWidget._defaults = {
 	allowedTravelModes: "CAR",
 	unitSystem: "METRIC",
 	wsUrl: "https://ws.mapilary.com:443",
+	wsPath: "/socket.io",
 	deliveryServiceUrl: "https://api.mapilary.com/v1/deliveries/find?trackingNr={trackingNr}",
 	findPathUrl: "http://ec2-54-194-157-122.eu-west-1.compute.amazonaws.com/pathfinding/",
 	tilesUrl: "http://{s}.tiles.mapbox.com/v3/mapilary.hmal3hg1/{z}/{x}/{y}.png",

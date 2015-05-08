@@ -1,8 +1,8 @@
 'use strict';
 
-$  = require('jquery')
-L  = require('leaflet')
-io = require('socket.io-client')
+window.$  = require('jquery')
+window.L  = require('leaflet')
+window.io = require('socket.io-client')
 require('../vendor/L.Control.Locate.browserify')
 
 global.window.MapilaryWidget = require('../js/widget');

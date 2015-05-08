@@ -2,9 +2,9 @@
 (function (global){
 'use strict';
 
-$  = require('jquery')
-L  = require('leaflet')
-io = require('socket.io-client')
+window.$  = require('jquery')
+window.L  = require('leaflet')
+window.io = require('socket.io-client')
 require('../vendor/L.Control.Locate.browserify')
 
 global.window.MapilaryWidget = require('../js/widget');
@@ -15,6 +15,11 @@ global.window.MapilaryWidget = require('../js/widget');
 var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+// var $  = require('jquery')
+// var L  = require('leaflet')
+// var io = require('socket.io-client')
+// require('../vendor/L.Control.Locate.browserify')
 
 var MapilaryWidget = (function () {
 	function MapilaryWidget(_settings) {
@@ -93,7 +98,7 @@ var MapilaryWidget = (function () {
 				var _this = this;
 
 				var driver = null;
-				var socket = io.connect(this._settings.wsUrl, { path: "/socket.io" });
+				var socket = io.connect(this._settings.wsUrl, { path: this._settings.wsPath });
 				socket.on("connect", function () {
 					socket.emit("subscribe", "trackingNr:" + trackingNr);
 				});
@@ -182,6 +187,7 @@ MapilaryWidget._defaults = {
 	allowedTravelModes: "CAR",
 	unitSystem: "METRIC",
 	wsUrl: "https://ws.mapilary.com:443",
+	wsPath: "/socket.io",
 	deliveryServiceUrl: "https://api.mapilary.com/v1/deliveries/find?trackingNr={trackingNr}",
 	findPathUrl: "http://ec2-54-194-157-122.eu-west-1.compute.amazonaws.com/pathfinding/",
 	tilesUrl: "http://{s}.tiles.mapbox.com/v3/mapilary.hmal3hg1/{z}/{x}/{y}.png",

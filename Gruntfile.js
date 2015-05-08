@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                         'bower_components/leaflet-locatecontrol/**/L.Control.Locate.css',
                         'node_modules/leaflet/dist/leaflet.css',
                         'node_modules/jquery/**/jquery.min.js',
-                        'node_modules/socket.io-client/**/socket.io.min.js',
+                        'node_modules/socket.io-client/socket.io.js',
                         'node_modules/leaflet/dist/leaflet.js',
                         'bower_components/leaflet-locatecontrol/**/L.Control.Locate.js'
                     ],
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
         },
         cssmin: {
             widget: {
-                files: { 
+                files: {
                 'dist/css/widget-loader.bundle.min.css': [
                     '.tmp/vendor/L.Control.Locate.css',
                     '.tmp/vendor/fonts.css',
@@ -107,13 +107,13 @@ module.exports = function(grunt) {
         },
         uglify: {
             widget: {
-                files: { 
+                files: {
                 'dist/js/widget-loader.bundle.min.js': [
                     '.tmp/vendor/L.Control.Locate.js',
                     '.tmp/js/widget.js'
                 ]}
             }
-        },        
+        },
         browserify: {
             shim: {
                 files: {

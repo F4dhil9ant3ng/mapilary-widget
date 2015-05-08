@@ -1,3 +1,5 @@
+// var $ = require('jquery')
+
 class MapilaryWidgetLoader {
 
     constructor(settings) {

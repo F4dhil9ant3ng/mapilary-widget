@@ -63,4 +63,3 @@ var MapilaryWidgetLoader = (function () {
 })();
 
 if (typeof module != "undefined") module.exports = MapilaryWidgetLoader;else window.MapilaryWidgetLoader = MapilaryWidgetLoader;
-//# sourceMappingURL=widget-loader.js.map

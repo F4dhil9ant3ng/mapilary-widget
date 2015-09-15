@@ -29,6 +29,7 @@
 <body>
 	<div id="widget"></div>
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <script src="js/widget.bundle.min.js"></script>
 <script>
 	var widget;
@@ -36,9 +37,9 @@
 		el: '#widget',
 		zoom: 10,
 		center: [48.131589, 17.198913],
-		wsUrl: 'https://ws.mapilary.com:443',
+		wsUrl: 'http://ws2.mapilary.com',
 		wsPath: '/dev/socket.io',
-		deliveryServiceUrl: 'https://api.mapilary.com/dev/deliveries/find?trackingNr={trackingNr}',
+		deliveryServiceUrl: 'http://api2.mapilary.com/dev/deliveries/find/{trackingNr}',
 
 	}).render();
 	$(window).resize(function () {

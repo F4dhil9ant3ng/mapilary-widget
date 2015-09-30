@@ -264,7 +264,7 @@ MapilaryWidget._defaults = {
     unitSystem: 'METRIC',
     wsUrl: 'https://ws.mapilary.com:443',
     wsPath: '/socket.io',
-    deliveryServiceUrl: 'https://api.mapilary.com/v1/deliveries/find?trackingNr={trackingNr}',
+    deliveryServiceUrl: 'https://api.mapilary.com/v1/deliveries/find/{trackingNr}',
     findPathUrl: 'http://ec2-54-194-157-122.eu-west-1.compute.amazonaws.com/pathfinding/',
     tilesUrl: 'http://{s}.tiles.mapbox.com/v3/mapilary.hmal3hg1/{z}/{x}/{y}.png',
     attribution: '&copy; <a href=\"http://www.mapbox.com\">Mapbox</a>',

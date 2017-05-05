@@ -3,11 +3,11 @@ Mapilary Tracking Widget
 
 ## Demo
 
-see [dist/](dist/) folder
+Visit:
 
-or visit:
+https://www.mapilary.com/mapilary-widget/dist/
 
-http://demo.mapilary.com/widget/
+All other demo examples are in [dist/](dist/) folder
 
 ## How to build
 
